@@ -13,9 +13,8 @@ const list = [
   },
    {
     address: "1 Brim Hill, London, UK",
-    sellingPrice: "$1,500,000",
     askingPrice: "$1,500,000",
-    status: "Sold",
+    status: "For Sale",
     propertyType: "Multi Family" ,
     image: 1,
   },

@@ -17,25 +17,35 @@ const ListingCard = ({ propertyEntity}) => {
   return (
     <div
       className="card-container"
+    >
+      <div 
+      className={"image-container"}
       style={{
         backgroundImage: image && `url(${bgImage})`//`url(${img})`
       }}
-    >
+      > </div>
 	<div className="content-container">
-		<div className="title-container">
-			<h4 className={"address-text"}>
-			  {address}
-			</h4>
+          <div className="title-container">
+	    <span>
+              <h4 className={"address-text"}>
+                {address}
+	      </h4>
+            </span>
+            <span>
+              <div> {propertyType} </div>
+            </span>
 
-		</div>
-		<div className="subheading-container">
+	  </div>
+		<div className="price-container">
 	          <h5 className="price-text">{askingPrice}</h5>
-                  <span className={"selling-price-text"}> {sellingPrice} </span>
-		</div>
-		<div className="description-container">
-                  <div className="status-text"> {status} </div>
-                  <div> {propertyType} </div>
-                    
+                  <span className={"selling-price-text"}> 
+                    {status === "Sold" && sellingPrice} 
+                  </span>
+                </div>
+                <div>
+                    <span className="status-text"> {status} 
+
+                    </span>    
 		</div>
 		<div className="card-footer">
                   <Avatar/>

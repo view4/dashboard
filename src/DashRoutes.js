@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+
 import Listings from "./pages/Listings";
+import Home from "./pages/Home";
 
 const DashRoutes = () => {
 
@@ -8,9 +10,10 @@ const DashRoutes = () => {
     <>
       <Switch>
         <Route exact path="/">
-          <div className="mock-page">
+          {/*<div className="mock-page">
             <h3>Render Main Dashboard screen here</h3>
-          </div>
+          </div>*/}
+          <Home />
         </Route>
         <Route  path="/edit_profile">
           <div className="mock-page">

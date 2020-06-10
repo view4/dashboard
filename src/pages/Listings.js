@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+
 import ListingCard from "../components/ListingCard";
+import TableList from "../components/TableList";
 
 const list = [
   {
@@ -68,18 +70,25 @@ const list = [
 ];
 
 const Listings = () => {
+  const [ isGridDisplay, setIsGridDisplay ] = useState(true)
 
   return (
     <>
       <div className={"listings-options-container"}>
-        <button className={"lo-button"}>
+        <button
+          className={"lo-button"}
+          onClick={() => setIsGridDisplay(false)}
+        >
           List View
           {/*<img 
             src={require("../assets/icons/list.png")} 
             className={"lo-button-image"}
           />*/}
         </button>
-        <button className={"lo-button"}>
+        <button 
+          className={"lo-button"}
+          onClick={() => setIsGridDisplay(true)}
+        >
           Grid View
           {/*<img 
             src={require("../assets/icons/grid.png")} 
@@ -88,7 +97,10 @@ const Listings = () => {
         </button>
       </div>
       <div className="list-container">
-        {list.map( (item, i) => <ListingCard propertyEntity={item} key={i} />)}
+        { 
+          isGridDisplay ? 
+            list.map( (item, i) => <ListingCard propertyEntity={item} key={i} />) : <TableList data={list}/>
+        }
       </div>
     </>
   )  

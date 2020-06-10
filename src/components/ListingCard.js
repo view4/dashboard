@@ -5,7 +5,7 @@ import Avatar from "./Avatar";
 
 
 const ListingCard = ({ propertyEntity}) => {
-  const [bgImage, setBgImage] = useState("");
+  const [ bgImage, setBgImage ] = useState("");
   const {  address, sellingPrice, askingPrice, status, propertyType, image } = propertyEntity;
 
   const img = require("../assets/images/house2.jpg")
@@ -21,7 +21,6 @@ const ListingCard = ({ propertyEntity}) => {
         backgroundImage: image && `url(${bgImage})`//`url(${img})`
       }}
     >
-
 	<div className="content-container">
 		<div className="title-container">
 			<h4 className={"address-text"}>

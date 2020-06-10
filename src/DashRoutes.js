@@ -14,16 +14,22 @@ const DashRoutes = () => {
     <>
       <Switch>
         <Route exact path="/">
-          "Render Main Dashboard screen here"
+          <div className="mock-page">
+            <h3>Render Main Dashboard screen here</h3>
+          </div>
         </Route>
         <Route  path="/edit_profile">
-          "Render Edit Profile screen here"
+          <div className="mock-page">
+            <h3>Render edit profile screen here</h3>
+          </div>
         </Route>
         <Route path="/my_listings">
           <Listings />
         </Route>
         <Route path="/my_team">
-          "Render My team screen here"
+          <div className="mock-page">
+            <h3>Render My Team screen here</h3>
+          </div>
         </Route>
       </Switch>
     </>

@@ -16,6 +16,15 @@
   width: calc(100vw - 180px);
 
 }
+
+.mock-page{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboard-view::-webkit-scrollbar {
   display: none;
 }
@@ -179,5 +188,18 @@
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+}
+
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1000px) {
+  .card-container {
+    width: 54vw;
+  }
+
+  .list-container {
+    justify-content: center;
+  }
 }
 

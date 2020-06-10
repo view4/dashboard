@@ -1,7 +1,6 @@
 import React from 'react';
 import "./App.css";
-import ListingCard from "./components/ListingCard";
-import Dashboard from "./Dashboard"
+import Dashboard from "./Dashboard";
 
 function App() {
   return (

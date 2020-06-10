@@ -1,7 +1,6 @@
 import React from "react";
 import ListingCard from "../components/ListingCard";
 
-
 const list = [
   {
     address: "1 Brim Hill, London, UK",

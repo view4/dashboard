@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Route,
-  NavLink,
-  HashRouter,
-  Switch
-} from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
 import Listings from "./pages/Listings";
 
 const DashRoutes = () => {

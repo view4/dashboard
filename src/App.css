@@ -59,6 +59,14 @@
   margin: 3px;
 }
 
+/* db home */ 
+
+.db-home-section {
+  height: 50vh;
+  width: 100%;
+  overflow: auto;
+}
+
 
 /* Listing Card */
 .card-container {

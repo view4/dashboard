@@ -195,6 +195,24 @@
   padding: 10px;
 }
 
+/* Listings Table */ 
+
+/*
+  What is the best way to be styling this, surely not as below ? 
+*/
+
+.ant-table-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+.avatar-table-row {
+  display: flex;
+}
+
+.blank-tb-val {
+  margin: auto;
+}
 
 /* Responsiveness */
 

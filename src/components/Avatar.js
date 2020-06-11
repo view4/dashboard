@@ -1,10 +1,10 @@
 import React from "react";
 
-const Avatar = () => {
+const Avatar = ({letter}) => {
 
   return (
     <div className={"avatar-container"}>
-      C
+      {letter}
     </div>
   )
 };

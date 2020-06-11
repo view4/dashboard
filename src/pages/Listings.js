@@ -11,6 +11,7 @@ const list = [
     status: "Sold",
     propertyType: "Multi Family" ,
     image: 1,
+    team: ["John", "Mike"]
   },
    {
     address: "1 Brim Hill, London, UK",
@@ -18,6 +19,7 @@ const list = [
     status: "For Sale",
     propertyType: "Multi Family" ,
     image: 1,
+    team: ["Sue", "Dave"]
   },
   {
     address: "1 Brim Hill, London, UK",
@@ -42,6 +44,7 @@ const list = [
     status: "Sold",
     propertyType: "Multi Family" ,
     image: 4,
+    team: ["Clint", "Anna"]
   },
   {
     address: "1 Brim Hill, London, UK",

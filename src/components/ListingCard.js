@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 const ListingCard = ({ propertyEntity}) => {
   const [ bgImage, setBgImage ] = useState("");
-  const {  address, sellingPrice, askingPrice, status, propertyType, image } = propertyEntity;
+  const {  address, sellingPrice, askingPrice, status, propertyType, image, team } = propertyEntity;
 
   useEffect(() => {
     setBgImage(require(`../assets/images/house${image}.jpg`));
@@ -39,8 +39,7 @@ const ListingCard = ({ propertyEntity}) => {
         </span>    
       </div>
       <div className="avatars-container">
-        <Avatar/>
-        <Avatar/>
+        {team && team.map((name, i) => <Avatar key={i} letter={name.slice(0,1)}/>)}
       </div>
     </div>
 	</div>

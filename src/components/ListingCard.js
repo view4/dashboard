@@ -4,38 +4,36 @@ import Avatar from "./Avatar";
 
 const ListingCard = ({ propertyEntity}) => {
   const [ bgImage, setBgImage ] = useState("");
-  const {  address, sellingPrice, askingPrice, status, propertyType, image, team } = propertyEntity;
-
+  const {  building_address, sale_price, asking_price, asset_type, listing_status, image, team, building_image } = propertyEntity;
   useEffect(() => {
-    setBgImage(require(`../assets/images/house${image}.jpg`));
+    setBgImage(require(`../assets/images/house${building_image ? building_image : "1"}.jpg`));
   } ,[]);
-
   return (
     <div className="card-container">
       <div 
         className={"image-container"}
         style={{
-          backgroundImage: image && `url(${bgImage})`
+          backgroundImage: building_image && `url(${bgImage})`
         }}
       /> 
     <div className="content-container">
       <div className="address-container">
         <span>
           <h4 className={"address-text"}>
-            {address}
+            {building_address.slice(0)  }
           </h4>
         </span>
-        <div> {propertyType} </div>
+        <div> {asset_type} </div>
       </div>
       <div className="price-container">
-        <h5 className="price-text">{askingPrice}</h5>
+        <h5 className="price-text">$ {asking_price}</h5>
         <span className={"selling-price-text"}> 
-          {status === "Sold" && sellingPrice} 
+          {listing_status === "Sold" && ("$ " + sale_price)} 
         </span>
       </div>
       <div>
         <span className="status-text"> 
-          {status} 
+          {listing_status} 
         </span>    
       </div>
       <div className="avatars-container">

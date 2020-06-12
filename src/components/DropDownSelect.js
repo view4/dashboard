@@ -28,7 +28,7 @@ const DropDownMobileModal = ({entities, onSelect, close}) => {
         {
           entities.map( (entity, i )  => (
             <div
-              key={entity.id} 
+              key={entity.id || i} 
               className={(entities.length === i + 1) ? "drop-down-item last " :"drop-down-item"}
               onClick={
                 () => {
@@ -48,22 +48,23 @@ const DropDownMobileModal = ({entities, onSelect, close}) => {
   )
 };
 
-const DropDownOptions = ({entities, onSelect}) => {
+const DropDownOptions = ({entities, onSelect, close}) => {
 
   return (
     <>
         {
           entities.map( (entity, i )  => (
             <div
-              key={entity.id} 
+              key={entity.id || i} 
               className={(entities.length === i + 1) ? "drop-down-item last " :"drop-down-item"}
               onClick={
                 () => {
                   onSelect(entity)
+                  close()
                 }
               }
              >
-               { entity.name && entity.name}
+               {entity.name}
             </div>
           ))
       }
@@ -71,16 +72,24 @@ const DropDownOptions = ({entities, onSelect}) => {
   )
 }
 
-const DropDownSelect = ({entities,  onSelect, close}) => {
-  const [ displayDropDown, setDisplayDropDown ] = useState(false)
+const DropDownSelect = ({entities,  onSelect, close, labelText}) => {
+  // Note entities do not need to be stored as object, can be altered.
+  const [ displayDropDown, setDisplayDropDown ] = useState(false);
+
+  const [ selectedValue, setSelectedValue ] = useState(undefined);
+
   const filteredEntites = entities;
   console.log(entities)
+  const handleSelect = (entity) => {
+    setSelectedValue(entity.name)
+    onSelect(entity);
+  }
 
 
   return(
     <div className={"dropdown-container"}>
       <div onClick={() => setDisplayDropDown(!displayDropDown)} className={"dropdown-label-container"}> 
-        <span> Please select ... </span> 
+        <span> { selectedValue || labelText || "Please select ..."} </span> 
         <img className={"dropdown-icon"} src={displayDropDown ? closeIcon : dropDownIcon} />
       </div>
       { displayDropDown && (
@@ -88,10 +97,15 @@ const DropDownSelect = ({entities,  onSelect, close}) => {
           {  
             isMobile ? 
               <DropDownMobileModal 
-              entities={entities} 
-              onSelect={onSelect}  
-              close={() => setDisplayDropDown(false)}
-            /> : <DropDownOptions entities={entities} onSelect={onSelect}/>
+                entities={entities} 
+                onSelect={(entity) => handleSelect(entity)}  
+                close={() => setDisplayDropDown(false)}
+              /> : 
+                <DropDownOptions 
+                  entities={entities} 
+                onSelect={(entity) => handleSelect(entity)}  
+                  close={() => setDisplayDropDown(false)}
+                />
           }
         </div>
       )}

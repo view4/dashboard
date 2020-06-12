@@ -135,7 +135,7 @@
 .address-text {
   margin: 3px;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .status-text {
@@ -171,14 +171,30 @@
 
 /* List page */
 
-.listings-options-container {
-  margin: 18px 18px 3px 18px;
+
+  /*  Filters */
+.filters-bar-container {
+    margin: 18px 18px 3px 18px;
+    display: flex;
+    justify-content: space-between;
+    /* background: #fff; */
+    border: 1px solid black;
+    padding: 7px;
+}
+
+.dropdown-filters-container {
+  display: flex;
+  min-width: 36%;
+  justify-content: space-around;
 }
 
 .lo-button {
-  margin: 7px;
-  background: #ebebeb8a;
+  background: #fff;
   padding: 3px 7px 3px 7px;
+}
+
+.lo-button.active{
+
 }
 
 

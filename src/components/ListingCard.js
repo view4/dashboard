@@ -2,6 +2,19 @@ import React, { useEffect, useState } from "react";
 import Avatar from "./Avatar";
 
 
+const Label = ({text}) => {
+
+  return (
+    <div className={"listing-card-label-container"}>
+      {text}
+    </div>
+  )
+};
+
+const sampleTeam = [  
+  { name: "Michael", photo: 1 }, { name: "John", photo: 3 }, { name: "Rachel", photo:2 }
+];
+
 const ListingCard = ({ propertyEntity}) => {
   const [ bgImage, setBgImage ] = useState("");
   const {  building_address, sale_price, asking_price, asset_type, listing_status, image, team, building_image } = propertyEntity;
@@ -16,6 +29,9 @@ const ListingCard = ({ propertyEntity}) => {
           backgroundImage: building_image && `url(${bgImage})`
         }}
       /> 
+      <div className={"status-banner"}>
+        <span>{listing_status} </span> 
+      </div>
     <div className="content-container">
       <div className="address-container">
         <span>
@@ -23,21 +39,22 @@ const ListingCard = ({ propertyEntity}) => {
             {building_address.slice(0)  }
           </h4>
         </span>
-        <div> {asset_type} </div>
+        <div> <Label text={asset_type}/> </div>
       </div>
       <div className="price-container">
-        <h5 className="price-text">$ {asking_price}</h5>
+        <h5 className="price-text">${asking_price}</h5>
         <span className={"selling-price-text"}> 
-          {listing_status === "Sold" && ("$ " + sale_price)} 
+          {//listing_status === "Sold" && ("$ " + sale_price)
+} 
         </span>
       </div>
       <div>
         <span className="status-text"> 
-          {listing_status} 
+
         </span>    
       </div>
       <div className="avatars-container">
-        {team && team.map((name, i) => <Avatar key={i} letter={name.slice(0,1)}/>)}
+        {/*team && team.map*/sampleTeam.map((person, i) => <Avatar key={i} photo={person.photo} letter={person.name.slice(0,1)}/>)}
       </div>
     </div>
 	</div>

@@ -53,10 +53,11 @@ const DashRoutes = () => {
     <>
       <Switch>
         <Route exact path="/">
-          {/*<div className="mock-page">
+          <div className="mock-page">
             <h3>Render Main Dashboard screen here</h3>
-          </div>*/}
-          <Home />
+          </div>
+          {//<Home />
+}
         </Route>
         <Route  path="/edit_profile">
           <div className="mock-page">

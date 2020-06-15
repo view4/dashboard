@@ -74,14 +74,14 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 36vw;
+  width: 25vw;
   height: 360px;
   margin: 18px;
   border-radius: 3px;
   overflow: hidden;
   align-items: center;
   /*background-color: #dadada;*/
-  box-shadow: 1px 1px 3px #c8c8c8bf;
+  box-shadow: 7px 7px 3px #c8c8c8bf;
   position: relative;
 }
 
@@ -89,8 +89,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid silver;
   margin-bottom: 7px;
+}
+
+.address-container > span {
+  max-height: 22px;
+  overflow: hidden;
 }
 
 .image-container{
@@ -120,11 +124,12 @@
 .price-container{
   display: flex;
   justify-content: space-between;
+  font-size: 22px;
 }
 
 .price-text {
   margin: 0px;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .selling-price-text {
@@ -155,8 +160,8 @@
 .avatar-container {
   border: 1px solid #ffffff8c;
   border-radius: 50%;
-  height: 36px;
-  width: 36px;
+  height: 54px;
+  width: 54px;
   text-align: center;
   color: #fff;
   font-size: small;
@@ -167,8 +172,48 @@
   justify-content: center;
   margin-left: -7px;
   font-size: 18px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: auto;
+}
+.avatar-container > img {
+  height: 100%;
+  width: 100%; 
+
 }
 
+  /* Status Banner */
+.status-banner {
+  position: absolute;
+  left: -54px;
+  top: 7px;
+  height: 54px;
+  width: 180px;
+  transform: rotate(-45deg);
+  background-color: red;
+  border-right-width: 20px;
+  border-color: red;
+  justify-content: flex-end;
+  padding-bottom: 4;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 10px 10px #5b231f42;
+ 
+}
+
+
+.status-banner > span {
+  font-size: 26px;
+  font-weight: 700;
+
+
+}
 /* List page */
 
 
@@ -248,3 +293,15 @@
   }
 }
 
+
+/* Listing Card - label */
+
+.listing-card-label-container {
+    font-size: 12px;
+    background-color: #8080807a;
+    border-radius: 18px;
+    text-align: center;
+    color: #fff;
+  padding: 3px;
+
+}

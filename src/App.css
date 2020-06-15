@@ -89,6 +89,7 @@
   /*background-color: #dadada;*/
   box-shadow: 7px 7px 3px #c8c8c8bf;
   position: relative;
+  cursor: pointer;
 }
 
 .address-container {

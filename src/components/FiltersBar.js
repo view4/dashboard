@@ -46,9 +46,8 @@ const FiltersBar = ({ setIsGridDisplay,  isGridDisplay }) => {
 
 
   useEffect( () => {
-    console.log(isGridDisplay)
     setDisplayGrid(isGridDisplay)
-  } ,isGridDisplay)
+  } , [ isGridDisplay])
 
   return (
     <div className={"filters-bar-container"}>

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
+
 /* General */
 
 .dashboard-wrapper {
@@ -68,6 +71,9 @@
   overflow: auto;
 }
 
+.card-container * {
+  font-family: spartan;
+}
 
 /* Listing Card */
 .card-container {
@@ -89,7 +95,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 7px;
 }
 
 .address-container > span {
@@ -104,6 +109,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
 }
 
 .content-container {
@@ -124,12 +130,14 @@
 .price-container{
   display: flex;
   justify-content: space-between;
-  font-size: 22px;
+  align-items: center;
+
 }
 
 .price-text {
   margin: 0px;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .selling-price-text {
@@ -141,6 +149,9 @@
   margin: 3px;
   font-weight: 400;
   font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .status-text {
@@ -151,9 +162,6 @@
   align-self: flex-end;
   display: flex;
   justify-content: center;
-  padding-bottom: 7px;
-  position: absolute;
-  bottom: 7px;
 }
 
 
@@ -177,9 +185,23 @@
   background-position: center center;
   overflow: auto;
 }
-.avatar-container > img {
-  height: 100%;
-  width: 100%; 
+
+.avatar-container.large {
+  height: 90px;
+  width: 90px;
+  margin: 3px 7px;
+
+}
+
+.avatar-popover-content-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.labels-container {
+  display: flex; 
+  padding: 1px;
 
 }
 
@@ -277,7 +299,14 @@
 
 /* Responsiveness */
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+  .card-container {
+    width: 36vw;
+  }
+
+}
+
+@media only screen and (max-width: 980px) and (min-width: 720px) {
   .card-container {
     width: 72vw;
   }
@@ -285,11 +314,39 @@
   .list-container {
     justify-content: center;
   }
+
+  .content-container {
+    height: 54%;
+  }
+
+  .avatar-container {
+    height: 90px;
+    width: 90px;
+  }
 }
 
 @media only screen and (max-width: 720px) {
   .card-container {
     width: 54vw;
+  }
+
+  .list-container {
+    justify-content: center;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  .card-container {
+    width: 90vw;
+  }
+
+  .dashboard-navigation {
+    display: none;
+  }
+
+  .dashboard-view {
+    width: 100vw;
   }
 }
 
@@ -297,11 +354,16 @@
 /* Listing Card - label */
 
 .listing-card-label-container {
-    font-size: 12px;
-    background-color: #8080807a;
-    border-radius: 18px;
-    text-align: center;
-    color: #fff;
-  padding: 3px;
-
+  font-size: 12px;
+  /*background-color: #8080807a;
+  color: #fff;*/
+  border-radius: 18px;
+  text-align: center;
+  padding: 3px 7px;;
+  margin: 0px 3px;
+  font-weight: 900;
+  /*background-color: #25ffda;
+  color: #130270;*/
+  background-color: #9bd9d770;
+  color: #404040;
 }

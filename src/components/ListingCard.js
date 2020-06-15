@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { Popover } from 'antd';
 import Avatar from "./Avatar";
 
 
-const Label = ({text}) => {
+const Squared = () => <> &#xB2;</>
+
+const Label = ({text, squared}) => {
 
   return (
     <div className={"listing-card-label-container"}>
       {text}
+      {squared && <Squared />}
     </div>
   )
 };
@@ -17,7 +21,15 @@ const sampleTeam = [
 
 const ListingCard = ({ propertyEntity}) => {
   const [ bgImage, setBgImage ] = useState("");
-  const {  building_address, sale_price, asking_price, asset_type, listing_status, image, team, building_image } = propertyEntity;
+  const {  
+    building_address, 
+    sale_price, asking_price, 
+    asset_type, 
+    listing_status, 
+    image, 
+    team, building_image,
+    square_feet
+  } = propertyEntity;
   useEffect(() => {
     setBgImage(require(`../assets/images/house${building_image ? building_image : "1"}.jpg`));
   } ,[]);
@@ -28,7 +40,9 @@ const ListingCard = ({ propertyEntity}) => {
         style={{
           backgroundImage: building_image && `url(${bgImage})`
         }}
-      /> 
+      > 
+
+      </div>
       <div className={"status-banner"}>
         <span>{listing_status} </span> 
       </div>
@@ -39,7 +53,6 @@ const ListingCard = ({ propertyEntity}) => {
             {building_address.slice(0)  }
           </h4>
         </span>
-        <div> <Label text={asset_type}/> </div>
       </div>
       <div className="price-container">
         <h5 className="price-text">${asking_price}</h5>
@@ -47,15 +60,26 @@ const ListingCard = ({ propertyEntity}) => {
           {//listing_status === "Sold" && ("$ " + sale_price)
 } 
         </span>
+        <div className="avatars-container">
+          {/*team && team.map*/
+            sampleTeam.map(
+              (person, i) => (
+               <Popover key={i} title={person.name} content={<> hi</>}>
+                  <Avatar 
+                    photo={person.photo} 
+                    letter={person.name.slice(0,1)}
+                  />
+                </Popover>
+              )
+           )}
+        </div>
       </div>
-      <div>
-        <span className="status-text"> 
 
-        </span>    
+      <div className={"labels-container"}> 
+        <Label text={asset_type}/> 
+        {square_feet && <Label text={square_feet + "/ft"} squared={true}/>}
       </div>
-      <div className="avatars-container">
-        {/*team && team.map*/sampleTeam.map((person, i) => <Avatar key={i} photo={person.photo} letter={person.name.slice(0,1)}/>)}
-      </div>
+
     </div>
 	</div>
   )
